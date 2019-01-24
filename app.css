@@ -1,0 +1,116 @@
+{
+  box-sizing: border-box;
+}
+
+body {
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+ /* Container for flexboxes */
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* Style the navigation menu */
+nav {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #ccc;
+  padding: 20px;
+}           
+            
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+    border: 1px solid #555;
+    background-color: #f1f1f1;
+  height: 100%; /* Full height */
+    
+}
+            
+nav li a {
+  display: block;
+    text-align: center;
+  border-bottom: 1px solid #555;
+    color: black;
+    text-decoration: none;
+    
+}
+            nav li:last-child {
+  border-bottom: none; 
+                text-decoration: none;
+    
+}
+
+            /* Change the link color on hover */
+nav li a:hover {
+  background-color: #555;
+  color: white;
+    text-decoration: none;
+    
+}
+nav li a.active {
+  background-color: #4CAF50;
+  color: white;
+    text-decoration: none;
+    
+}
+            
+            nav li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+                text-decoration: none;
+    
+}
+            
+article {
+    -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
