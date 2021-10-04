@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      * {
+  box-sizing: border-box;
+}
+        body {
+            font-family: Georgia, serif;
+            width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+        
+        button {
+            font-family: Georgia, serif;
+    box-sizing: border-box;
+    width: 100%;
+    background: #007bff;
+    border-bottom: 1px solid #007bff; 
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+}
+
+button:hover {
+    background: #0069d9;
+    cursor: pointer;
+}
+
+form input[type="text"] {
+    font-family: Georgia, serif;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font-size: 1em;
+}
+
+form input[type="text"]:focus {
+    width: 100%;
+    box-shadow: 0 0 5px #f0db4f;
+    padding: 3%;
+    border: 1px solid #f0db4f;
+}
+
+form input[type="date"] {
+    font-family: Georgia, serif;
+      outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font-size: 1em;
+        }
+        
+form input[type="date"]:focus {
+     width: 100%;
+    box-shadow: 0 0 5px #f0db4f;
+    padding: 3%;
+    border: 1px solid #f0db4f;
+        }
+        select {
+              padding: 0;
+  margin: 0;
+            width: 100%;
+        }
+        select option {
+            font-family: Georgia, serif;
+             border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+            width: 100%;
+        }
+        label {
+            font-family: Georgia, serif;
+            width: 100%;
+              padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+        }
+        
+        select option:hover {
+  background-color: #eee;
+            width: 100%;
+}
+    </style>
+    <title>task organizer</title>
+    
+</head>
+<body>    
+    <div id="container">
+        <form>
+            
+            <label for="name">New Task:</label>
+            <input type="text" id="name" placeholder="Enter a task" autocomplete="off">
+            <label for="date">Due Date:</label>
+            <input type="date" id="date" name="date">
+             <button id="btnAdd">Add</button>
+            
+            
+           
+
+            <label for="list">Tasks:</label>
+            <select id="list" name="list" multiple>
+
+            </select>
+            <button id="btnRemove">Remove Selected Task</button>
+        </form>
+    </div>
+    
+    
+    <script>
+      
+        const btnAdd = document.querySelector('#btnAdd');
+        const btnRemove = document.querySelector('#btnRemove');
+        const sb = document.querySelector('#list');
+        const name = document.querySelector('#name');
+        const date = document.querySelector('#date');
+       
+        btnAdd.onclick = (e) => {
+            e.preventDefault();
+           
+            // validate the option
+            if (name.value == '') {
+                alert('Please enter the name.');
+                return;
+            }
+            if (date.value == '')
+            {
+                alert('please enter a date.');
+                return;
+            }
+            // create a new option
+            const option = new Option(name.value + " due: " + date.value);
+            // add it to the list
+            sb.add(option, undefined);
+
+            // reset the value of the input
+            name.value = '';
+            name.focus();
+            date.value = '';
+            date.focus();    
+            
+            // Save the list to localStorage
+	localStorage.setItem('sb', list.innerHTML);
+        };
+
+        // remove selected option
+        btnRemove.onclick = (e) => {
+            e.preventDefault();
+
+            // save the selected option
+            let selected = [];
+
+            for (let i = 0; i < sb.options.length; i++) {
+                selected[i] = sb.options[i].selected;
+            }
+
+            // remove all selected option
+            let index = sb.options.length;
+            while (index--) {
+                if (selected[index]) {
+                    sb.remove(index);
+                }
+            }
+            localStorage.setItem('sb', list.innerHTML);
+        };
+        
+        // Check for saved wishlist items
+var saved = localStorage.getItem('sb');
+
+// If there are any saved items, update our list
+if (saved) {
+	list.innerHTML = saved;
+}
+        //        <p id="dte" onload="functiondisplaydate()"></p>
+        //functiondisplaydate() {
+            //document.getElementByID('dte').innerHTML = Date();
+        //}
+    </script>
+</body>
+</html>
