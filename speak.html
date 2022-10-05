@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> talk to me! </title>
+<style>
+      * {
+  box-sizing: border-box;
+}
+        body {
+            font-family: Georgia, serif;
+            width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+        
+        button {
+            font-family: Georgia, serif;
+    box-sizing: border-box;
+    width: 100%;
+    background: #007bff;
+    border-bottom: 1px solid #007bff; 
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px;
+}
+
+button:hover {
+    background: #0069d9;
+    cursor: pointer;
+}
+
+form input[type="text"] {
+    font-family: Georgia, serif;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font-size: 1em;
+}
+
+form input[type="text"]:focus {
+    width: 100%;
+    box-shadow: 0 0 5px #f0db4f;
+    padding: 3%;
+    border: 1px solid #f0db4f;
+}
+
+        select {
+              padding: 0;
+  margin: 0;
+            width: 100%;
+        }
+        select option {
+            font-family: Georgia, serif;
+             border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+            width: 100%;
+        }
+        label {
+            font-family: Georgia, serif;
+            width: 100%;
+              padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+  position: relative;
+        }
+        
+        select option:hover {
+  background-color: #eee;
+            width: 100%;
+}
+    </style>
+</head>
+<body>
+<form>
+  <label for="fname">Tell me something</label><br>
+  <input type="text" id="speak" name="speak"><br>
+  <button id="btnAdd">confirm</button>
+</form>
+
+<script>
+const btnAdd = document.querySelector('#btnAdd');
+const speak = document.querySelector('#speak');
+ btnAdd.onclick = (e) => {
+ e.preventDefault();
+ if (speak.value == 'hi')
+ {
+ 	alert('hello!');
+                return;
+ }
+ if (speak.value == 'I love you!')
+ {
+ 	alert('I love you too!');
+    return;
+ }
+ if (speak.value == '<3')
+ {
+ 	alert('<3');
+    return;
+ }
+ if (speak.value == 'do you dance?')
+ {
+ alert("depends, who's asking?");
+ 	return;
+ }
+ }
+</script>
+
+</body>
+</html>
