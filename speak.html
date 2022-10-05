@@ -102,12 +102,12 @@ const btnAdd = document.querySelector('#btnAdd');
 const speak = document.querySelector('#speak');
  btnAdd.onclick = (e) => {
  e.preventDefault();
- if (speak.value == 'hi')
+ if (speak.value == 'hi' || speak.value  == 'Hi' || speak.value == "Hello" || speak.value == "hello"}})
  {
  	alert('hello!');
                 return;
  }
- if (speak.value == 'I love you!')
+ if (speak.value == 'I love you!' || speak.value == "i love you!")
  {
  	alert('I love you too!');
     return;
@@ -117,7 +117,7 @@ const speak = document.querySelector('#speak');
  	alert('<3');
     return;
  }
- if (speak.value == 'do you dance?')
+ if (speak.value == 'do you dance?' || speak.value == 'Do you dance?')
  {
  alert("depends, who's asking?");
  	return;
